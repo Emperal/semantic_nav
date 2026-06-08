@@ -1,0 +1,23 @@
+# scan_to_scan_filter_chain:
+#   ros__parameters:
+#     filter1:
+#       name: polygon_filter
+#       type: laser_filters/LaserScanPolygonFilter
+#       params:
+#         polygon_frame: livox_frame
+#         polygon: "[[0.37, 0.26], [0.37, -0.26], [-0.37, -0.26], [-0.37, 0.26]]"
+#         invert: false
+#         footprint_topic: base_footprint_exclude
+
+laser_rect_filter:
+  ros__parameters:
+    rect_center_x: 0.0
+    rect_center_y: 0.0
+
+    rect_width: 0.75 # x axis
+    rect_height: 0.60 # y axis
+
+    input_scan_topic: "/scan_origin"
+    output_scan_topic: "/scan"
+    input_lidar_topic: "/livox/lidar"
+    output_lidar_topic: "/filtered_cloud"

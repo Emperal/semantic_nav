@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="chassis_description">
+  <link name="base_footprint">
+  </link>
+  <joint name="virtual_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="chassis_base_link"/>
+  </joint>
+
+  <link
+    name="chassis_base_link">
+    <inertial>
+      <origin
+        xyz="-0.00434034119212711 0.000266309496600143 0.120392184654619"
+        rpy="0 0 0" />
+      <mass
+        value="4.54005989598753" />
+      <inertia
+        ixx="0.0449679754263203"
+        ixy="4.01029711578569E-06"
+        ixz="-0.00460065686348625"
+        iyy="0.130095947108695"
+        iyz="1.53312166197668E-06"
+        izz="0.166817580700565" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/chassis_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/chassis_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.56080033113202E-07 0.00145041104119339 -8.25274820524108E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.715520501033217" />
+      <inertia
+        ixx="0.00164788517952949"
+        ixy="-7.02799772263634E-10"
+        ixz="-9.55648885350931E-09"
+        iyy="0.00310618745643764"
+        iyz="-4.76958782964827E-08"
+        izz="0.00164786194598849" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="chassis_to_left_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0.177500027911101 0.0385000562004271"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.03332626963997E-06 0.00154967310235005 -9.70757445594578E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.715524358201097" />
+      <inertia
+        ixx="0.00164797962867649"
+        ixy="5.42408180730075E-10"
+        ixz="3.53510230671916E-08"
+        iyy="0.0031061793024967"
+        iyz="4.77052974064E-08"
+        izz="0.00164776145343699" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="chassis_to_right_wheel"
+    type="continuous">
+    <origin
+      xyz="0 -0.180499971998694 0.0385000562004283"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="livox_frame">
+    <inertial>
+      <origin
+        xyz="-0.000277323956395459 -5.4205278428655E-06 -0.0316285012201606"
+        rpy="0 0 0" />
+      <mass
+        value="0.127996255651444" />
+      <inertia
+        ixx="5.91707150421098E-05"
+        ixy="6.02908274357884E-09"
+        ixz="3.91655581456532E-07"
+        iyy="4.63299872466488E-05"
+        iyz="4.06020781048492E-09"
+        izz="9.09794984615253E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/lidar_frame.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_description/meshes/lidar_frame.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="chassis_base_to_lidar"
+    type="fixed">
+    <origin
+      xyz="0.31775 0 0.2207971"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_base_link" />
+    <child
+      link="livox_frame" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

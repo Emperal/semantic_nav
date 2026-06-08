@@ -1,0 +1,2 @@
+source install/setup.bash
+ros2 launch semantic_object_nav_rpc semantic_object_nav_rpc.launch.py

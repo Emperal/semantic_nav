@@ -1,0 +1,19 @@
+pointcloud_to_laserscan:
+  ros__parameters:
+    target_frame: base_footprint
+
+    # 高度切片（单位：米）
+    min_height: 0.05
+    max_height: 0.60
+
+    # 距离限制
+    range_min: 0.10
+    range_max: 30.0
+
+    # LaserScan 行为
+    use_inf: true
+    inf_epsilon: 1.0
+
+    # 扫描角度（一般不用改）
+    angle_min: -3.14159
+    angle_max: 3.14159

@@ -1,0 +1,115 @@
+ekf_filter_node:
+  ros__parameters:
+
+    frequency: 50.0
+    sensor_timeout: 0.1
+    two_d_mode: false
+
+    publish_tf: true
+    publish_acceleration: false
+    print_diagnostics: true
+    debug: false
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_footprint
+    world_frame: odom   # 连续里程计 → odom
+    
+    # odom0: /odometry/imu_incremental
+    # odom0_config: [
+    #   true,  true,  false,     # x y z
+    #   false,  false, true,     # roll pitch yaw
+    #   false, false, false,    # vx vy vz
+    #   false, false, false,    # vroll vpitch vyaw
+    #   false, false, false     # ax ay az
+    # ]
+
+    # odom0_queue_size: 5
+    # odom0_differential: false
+    # odom0_relative: false
+    # odom0_pose_rejection_threshold: 5.0
+    # odom0_twist_rejection_threshold: 1.0
+
+    # odom1: /dt/odom_info
+    # odom1_config: [
+    #   false, false, false,    # x y z 
+    #   false, false, false,    # roll pitch yaw 
+    #   true,  false, false,    # vx vy vz
+    #   false, false, true,     # vroll vpitch vyaw
+    #   false, false, false
+    # ]
+
+    # odom1_queue_size: 10
+    # odom1_differential: false
+    # odom1_relative: false
+    # odom1_twist_rejection_threshold: 1.0
+
+    odom0: /dt/odom_info
+    odom0_config: [
+      false, false, false,    # x y z 
+      false, false, false,    # roll pitch yaw 
+      true,  false, false,    # vx vy vz
+      false, false, true,     # vroll vpitch vyaw
+      false, false, false
+    ]
+
+    odom0_queue_size: 10
+    odom0_differential: false
+    odom0_relative: false
+    odom0_twist_rejection_threshold: 1.0
+
+    # imu0: /livox/imu
+    # imu0_config: [
+    #   false, false, false,    # x y z
+    #   false,  false,  false,   # roll pitch yaw
+    #   true, false, false,    # vx vy vz
+    #   false,  false,  false,   # vroll vpitch vyaw
+    #   true,  false,  true   # ax ay az
+    # ]
+
+    # imu0_queue_size: 50
+    # imu0_differential: false
+    # imu0_relative: false
+    # imu0_remove_gravitational_acceleration: false
+    # imu0_pose_rejection_threshold: 0.8
+    # imu0_twist_rejection_threshold: 0.8
+    # imu0_linear_acceleration_rejection_threshold: 0.8
+
+    ########################################
+    # 控制输入（可选，如果不用可关闭）
+    ########################################
+    use_control: false
+
+    ########################################
+    # 过程噪声（推荐初始值，稳定）
+    ########################################
+
+    # process_noise_covariance: [
+    #   0.05, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.05, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.05, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.03, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.03, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.06, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.2,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.2,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.2,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.05, 0.0,  0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.05, 0.0,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.1,  0.0,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.1,  0.0,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.1,  0.0,
+    #   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.15
+    # ]
+
+
+    # ########################################
+    # # 初始协方差
+    # ########################################
+    # initial_estimate_covariance: [
+    #   1e-9, 1e-9, 1e-9,
+    #   1e-9, 1e-9, 1e-9,
+    #   1e-9, 1e-9, 1e-9,
+    #   1e-9, 1e-9, 1e-9,
+    #   1e-9, 1e-9, 1e-9
+    # ]

@@ -1,0 +1,42 @@
+# ROS2 build files
+build/
+install/
+log/
+lib/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Conda / venv
+.env/
+.venv/
+venv/
+pyslam/
+*.conda
+
+# Large map / dataset files
+*.bag
+*.db3
+*.pcd
+*.ply
+*.npz
+*.npy
+*.pkl
+*.db
+
+# Dataset / result folders
+dataset/
+datasets/
+results/
+slam_state/
+metrics_*/
+
+# System files
+.DS_Store
+.idea/
+.vscode/
+*.log
